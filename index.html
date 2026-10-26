@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#312E81">
+<title>GyanDeep Academy | Download App</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f5ff;color:#1f2937}
+header{background:white;padding:16px 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e3f5}
+.brand{display:flex;align-items:center;gap:12px;font-weight:bold;font-size:18px}
+.brand img{width:45px;height:45px;object-fit:contain;border-radius:12px}
+.official{color:#16845b;font-size:12px;font-weight:bold}
+main{max-width:1100px;margin:auto;padding:65px 24px}
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:55px}
+.tag{display:inline-block;background:#ede9fe;color:#5b21b6;padding:9px 14px;border-radius:30px;font-size:12px;font-weight:bold}
+h1{font-size:clamp(38px,5vw,60px);line-height:1.08;color:#172554;margin:22px 0}
+h1 span{color:#6d28d9}
+.description{font-size:17px;line-height:1.8;color:#718096}
+.points{margin:24px 0;color:#475467;line-height:2;font-size:14px}
+.download{display:inline-block;background:linear-gradient(110deg,#3730a3,#6d28d9);color:white;text-decoration:none;padding:18px 25px;border-radius:14px;font-weight:bold;box-shadow:0 10px 24px #6d28d933}
+.note{font-size:12px;color:#718096;margin-top:14px}
+.preview{background:white;padding:30px;border-radius:25px;box-shadow:0 25px 60px #312e811c;border:1px solid #e8e3f5}
+.apphead{display:flex;align-items:center;gap:15px;padding-bottom:22px;border-bottom:1px solid #eee}
+.apphead img{width:68px;height:68px;object-fit:contain;border-radius:16px}
+.apphead small{display:block;margin-top:6px;color:#718096}
+.feature{padding-top:23px}
+.feature strong{color:#312e81}
+.feature p{color:#718096;font-size:14px;line-height:1.6}
+.instructions{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:65px}
+.step{background:white;border:1px solid #e8e3f5;padding:22px;border-radius:17px}
+.step strong{color:#312e81}
+.step p{font-size:13px;color:#718096;line-height:1.7}
+footer{text-align:center;background:white;border-top:1px solid #e8e3f5;padding:25px;color:#718096;font-size:12px}
+@media(max-width:700px){.hero{grid-template-columns:1fr;gap:35px}main{padding:42px 20px}.instructions{grid-template-columns:1fr}header{padding:14px 18px}.brand{font-size:15px}.official{font-size:10px}.download{display:block;text-align:center}}
+</style>
+</head>
+<body>
 
+<header>
+  <div class="brand">
+    <img src="icon.png" alt="GyanDeep Academy logo">
+    <span>GyanDeep Academy</span>
+  </div>
+  <div class="official">✓ OFFICIAL APP</div>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <div class="tag">LEARNING MADE SIMPLER</div>
+      <h1>Your academy.<br><span>One app.</span></h1>
+      <p class="description">
+        Stay connected with GyanDeep Academy through a simple mobile
+        experience designed for students, teachers and academy management.
+      </p>
+      <div class="points">
+        ✓ Android application<br>
+        ✓ Direct APK download<br>
+        ✓ Simple installation
+      </div>
+      <a class="download" id="downloadButton" href="#">
+        ↓ &nbsp; Download for Android
+      </a>
+      <p class="note" id="downloadNote">Android APK installer</p>
+    </div>
+
+    <div class="preview">
+      <div class="apphead">
+        <img src="icon.png" alt="App icon">
+        <div>
+          <strong>GyanDeep Academy</strong>
+          <small>Official Android application</small>
+        </div>
+      </div>
+      <div class="feature">
+        <strong>📚 Learning in one place</strong>
+        <p>Access academy services through your Android device.</p>
+      </div>
+      <div class="feature">
+        <strong>👨‍🏫 For your academy community</strong>
+        <p>A shared experience for students, teachers and management.</p>
+      </div>
+      <div class="feature">
+        <strong>🛡️ Simple installation</strong>
+        <p>Download the APK and install it on a compatible Android device.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="instructions">
+    <div class="step">
+      <strong>01 · Download</strong>
+      <p>Tap the download button to download your APK file.</p>
+    </div>
+    <div class="step">
+      <strong>02 · Open file</strong>
+      <p>Open the downloaded APK from your phone's Downloads folder.</p>
+    </div>
+    <div class="step">
+      <strong>03 · Install</strong>
+      <p>If prompted, allow installation from your browser or file manager.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  GyanDeep Academy · © <span id="year"></span> All rights reserved.
+</footer>
+
+<script>
+  // Replace this with your PUBLIC DIRECT APK download URL.
+  const APK_URL = "PASTE_YOUR_DIRECT_APK_URL_HERE";
+
+  const button = document.getElementById("downloadButton");
+  const note = document.getElementById("downloadNote");
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  if (APK_URL.startsWith("https://") || APK_URL.startsWith("http://")) {
+    button.href = APK_URL;
+    button.target = "_blank";
+    button.rel = "noopener noreferrer";
+  } else {
+    button.addEventListener("click", function(event) {
+      event.preventDefault();
+      alert("Please add your APK URL in the APK_URL variable in index.html.");
+    });
+    note.textContent = "Configure your APK link before publishing.";
+  }
+</script>
+
+</body>
+</html>
